@@ -9,29 +9,16 @@ import org.springframework.security.provisioning.UserDetailsManager;
 
 @Configuration
 public class SecurityConfig {
-	
+
 	@Bean
-    public InMemoryUserDetailsManager configureMemoryUser() {
+	public InMemoryUserDetailsManager configureMemoryUser() {
 
-        UserDetails user1 = User.withUsername("mahi")
-                .password("{noop}ma@123")
-                .roles("USER")
-                .build();
+		UserDetails user1 = User.withUsername("mahi").password("{noop}ma@123").roles("USER").build();
 
-        UserDetails user2 = User.withUsername("admin")
-                .password("{bcrypt}admin123")
-                .roles("ADMIN")
-                .build();
+		UserDetails user2 = User.withUsername("admin").password("{bcrypt}admin123").roles("ADMIN").build();
 
-        UserDetails user3 = User.withUsername("test")
-                .password("{noop}test123")
-                .roles("USER")
-                .build();
+		UserDetails user3 = User.withUsername("test").password("{noop}test123").roles("USER").build();
 
-        return new InMemoryUserDetailsManager(user1, user2, user3);
-    }
+		return new InMemoryUserDetailsManager(user1, user2, user3);
+	}
 }
-
-	
-
-
